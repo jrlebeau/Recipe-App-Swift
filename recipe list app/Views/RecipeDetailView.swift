@@ -48,7 +48,7 @@ struct RecipeDetailView: View {
                     ForEach (recipe.ingredients) { item in
                         let ingredientString = RecipeModel.getPortion(ingredient: item, recipeServing: recipe.servings, targetServing: selectedServingSize)
                             + " "
-                            + item.name
+                            + item.name.lowercased()
                         
                         Text("• " + ingredientString)
                     }
