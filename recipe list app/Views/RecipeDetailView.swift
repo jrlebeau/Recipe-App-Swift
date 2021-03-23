@@ -23,10 +23,11 @@ struct RecipeDetailView: View {
                 Image(recipe.image)
                     .resizable()
                     .scaledToFill()
-                 
- //               Text(recipe.name)
- //                   .font(.headline)
- //                   .padding([.bottom, .top], 5)
+
+                Text(recipe.name)
+                    .font(Font.custom("Avenir Heavy", size: 24))
+                    .padding(.top, 20)
+                    .padding(.leading)
                 
                 VStack (alignment: .leading){
                     Picker("", selection:$selectedServingSize) {
@@ -43,7 +44,7 @@ struct RecipeDetailView: View {
                 // MARK: Ingredients
                 VStack(alignment: .leading) {
                     Text("Ingredients")
-                        .font(.headline)
+                        .font(Font.custom("Avenir Heavy", size: 16))
                         .padding([.bottom, .top], 5)
                     ForEach (recipe.ingredients) { item in
                         let ingredientString = RecipeModel.getPortion(ingredient: item, recipeServing: recipe.servings, targetServing: selectedServingSize)
@@ -51,6 +52,8 @@ struct RecipeDetailView: View {
                             + item.name.lowercased()
                         
                         Text("• " + ingredientString)
+                            .font(Font.custom("Avenir", size: 15))
+
                     }
                 }
                 .padding(.horizontal)
@@ -61,13 +64,14 @@ struct RecipeDetailView: View {
                 // MARK: Directions
                 VStack(alignment: .leading) {
                     Text("Directions")
-                        .font(.headline)
+                        .font(Font.custom("Avenir Heavy", size: 16))
                         .padding([.bottom, .top], 5)
                     
                     ForEach(0..<recipe.directions.count, id: \.self) { index in
                         let line = String(index+1) + ". " + recipe.directions[index]
                         Text(line)
                             .padding(.bottom, 5)
+                            .font(Font.custom("Avenir", size: 15))
                     }
                 }
                 .padding(.horizontal)
