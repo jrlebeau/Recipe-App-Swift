@@ -30,6 +30,8 @@ struct RecipeDetailView: View {
                     .padding(.leading)
                 
                 VStack (alignment: .leading){
+                    Text("Select your serving size:")
+                        .font(Font.custom("Avenir", size: 16))
                     Picker("", selection:$selectedServingSize) {
                         Text("2").tag(2)
                         Text("4").tag(4)

@@ -12,11 +12,11 @@ struct RecipeListView: View {
     @EnvironmentObject var model:RecipeModel
     
     var body: some View {
+        
         NavigationView {
             
             VStack (alignment: .leading){
                 Text("All Recipes")
-                    .bold()
                     .padding(.leading)
                     .padding(.top, 40)
                     .font(Font.custom("Avenir Heavy", size: 24))
